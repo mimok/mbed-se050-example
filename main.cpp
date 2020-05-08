@@ -41,7 +41,10 @@ int main(void)
 	while(1) {
 	    printf("\nRead SE050 attested PmodTMP3 temperature\n");
 	    printf("------------------------------------------\n");
-	    getTemp(&ctx, &temperature, &attestation);
+	    if(getTemp(&ctx, &temperature, &attestation) != MBED_SUCCESS) {
+	    	perror("Can't get temperature measurement");
+	    	return -1;
+	    }
 		printf("Temperature: %x\n\n", temperature);
 		printByteArray("ChipId", &attestation.chipId[0], 18);
 		printByteArray("Random", &attestation.outrandom[0], 16);
