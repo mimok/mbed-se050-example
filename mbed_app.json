@@ -3,6 +3,5 @@
         "*": {		
             "platform.stdio-baud-rate": 115200
         }
-    },
-    "requires": ["bare-metal", "se050"]
+    }
 }
